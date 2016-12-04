@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Користувачі</title>
+<meta charset="utf-8"></meta>
+<!-- Latest compiled and minified CSS
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>  -->
+<link rel="stylesheet" href="/users/core/css/bootstrap/bootstrap.min.css"></link>
+<!-- Optional theme 
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link> -->
+<link rel="stylesheet"
+	href="/users/core/css/bootstrap/bootstrap-theme.min.css"></link>
+<!-- Latest compiled and minified JavaScript
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>  -->
+<link rel="stylesheet" href="/users/core/js/bootstrap/bootstrap.min.js"></link>
+
+</head>
+<body>
+
+	<div class="container">
+		<div th:if="${users.isEmpty()}">Користувачів немає</div>
+		<div class="row-fluid" >
+	
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Логін</th>
+                    <th>Пошта</th>
+                    <th>Пароль</th>
+                    <th>Роль</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            	
+                	<tr th:each="user: ${users}">
+	                	<td th:text="${user.login}">Логін</td>	                  	
+	                  	<td th:text="${user.email}">Пошта</td>
+	                  	<td th:text="${user.password}">Пароль</td>
+	                  	<td th:text="${user.role}">Роль</td>
+                	</tr>
+
+            </tbody>
+        </table>
+ 	
+		</div>
+	</div>
+
+
+
+</body>
+</html>

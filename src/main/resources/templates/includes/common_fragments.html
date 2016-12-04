@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head  th:fragment="site-head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- tell “IE browsers” to use the latest rendering engine (the “edge version”) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- for a responsive web design -->
+    <link rel="stylesheet" href="../static/core/css/bootstrap/bootstrap.min.css" th:href="@{/core/css/bootstrap/bootstrap.min.css}" ></link>
+    <link rel="stylesheet" href="../static/core/css/main.css"  th:href="@{/core/css/main.css}" ></link>
+   
+   	<link rel="shortcut icon" href="../static/core/img/favicon.ico"  th:href="@{/core/img/favicon.ico}"  type="image/x-icon">
+	<link rel="icon"  href="../static/core/img/favicon.ico"  th:href="@{/core/img/favicon.ico}"  type="image/x-icon">
+  </head>
+<body>
+ 
+<!-- Navigation -->
+<div class="navbar navbar-inverse navbar-fixed-top"  th:fragment="site-header"  >
+    <div class="container-fluid" >
+        <ul class="nav navbar-nav">
+            <li><a href="#"> Головна </a></li>
+            <li><a href="#"> Модерація </a></li>
+            <li class="active"><a href="#"> Користувачі </a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li class="hidden-xxs"><a href="#"><i class="glyphicon glyphicon-user"></i> ${user.login} </a></li>
+            <li><button type="button" class="btn navbar-btn btn-sm"> Вихід </button></li>
+        </ul>
+
+    </div>
+</div>
+	<!-- Navigation -->
+ 
+
+
+  <div id="main-content" class="container">
+ <h1>Welcome</h1>
+  </div><!-- End of #main-content -->
+
+  
+   	<!-- Footer -->
+<div  class="navbar navbar-inverse navbar-fixed-bottom" th:fragment="site-footer" >
+    <div class="container-fluid" >
+	<div class="text-center"><span class="label" th:text="${location}">Браузер. Операційна система.</span></div>
+    </div>
+</div>
+	<!-- Footer -->
+
+</body>
+</html>

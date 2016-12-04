@@ -1,0 +1,25 @@
+<!-- Navigation -->
+<div class="navbar navbar-inverse navbar-fixed-top"  th:fragment="main-navigation"  >
+    <div class="container-fluid" >
+        <ul class="nav navbar-nav">
+            <li><a href="#" th:href="@{/register}"> Головна </a></li>
+            <li><a href="#" th:if="${user.role}==ADMIN"> Модерація </a></li>
+            <li class="active" th:if="${user.role}==ADMIN"><a href="#" th:href="@{/user-list}"> Користувачі </a></li>
+           
+        </ul>
+		
+        <ul class="nav navbar-nav navbar-right">
+          	 <li class="hidden-xxs"><a href="#">Роль: <span th:text="${user.role}">Роль</span></a></li>
+            <li class="hidden-xxs">
+            	<a href="#" >
+		            <i class="glyphicon glyphicon-user"></i> 
+		            <span th:text="${user.login}">Логін</span>
+		            
+	            </a>
+	        </li>
+            <li><a href="#"  th:href="@{/logout}" class="wo-paddings" ><button type="button" class="btn navbar-btn btn-sm" > Вихід </button></a></li>
+        </ul>
+
+    </div>
+</div>
+	<!-- Navigation -->

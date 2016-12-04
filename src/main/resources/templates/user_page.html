@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head th:replace="includes/common_fragments :: site-head">
+  
+   <!-- <link rel="stylesheet" href="/uses/core/css/bootstrap/bootstrap.min.css"></link>
+   <link rel="stylesheet" href="/users/core/css/main.css"></link> -->
+   
+   <!-- <link rel="stylesheet" href="../static/core/css/bootstrap/bootstrap.min.css" th:href="@{/core/css/bootstrap/bootstrap.min.css}" ></link>
+    <link rel="stylesheet" href="../static/core/css/main.css"  th:href="@{/core/css/main.css}" ></link>
+   
+   	<link rel="shortcut icon" href="../static/core/img/favicon.ico"  th:href="@{/core/img/favicon.ico}"  type="image/x-icon">
+	<link rel="icon"  href="../static/core/img/favicon.ico"  th:href="@{/core/img/favicon.ico}"  type="image/x-icon">  -->
+    <title>Сторінка користувача</title>
+  </head>
+  <body>
+
+	<!-- Navigation -->
+<div th:replace="includes/navigation :: main-navigation" >
+   
+</div>
+	<!-- Navigation -->
+	
+	<!-- User information -->
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 well">
+		<div>Доброго дня, <span th:text="${user.login}">Користувач</span></div>
+			<div class="col-md-3 col-sm-4 col-xs-4">
+                        <img class="image-avatar img-circle" alt="User avatar" width="128" height="128" src="http://placehold.it/128x128" th:src="@{ ${avatarUrl} }">
+                   </div>
+
+			<div class="col-md-9 col-sm-8 col-xs-8">
+				<h4  class="" th:text="${user.login}">Логін користувача</h4>
+				<button class="btn btn-warning"><span class="badge">0</span><span class="hidden-xs"> повідомлення(нь)</span></button>
+				<button class="btn btn-info"><span class=" badge">0</span><span class="hidden-xs hidden-sm"> підписчик(ів)</span></button>
+				<button class="btn btn-primary">	<span class=" badge">0</span><span class="hidden-xs hidden-sm"> підписок(а)</span></button>
+                
+			</div>
+			<div class="col-xs-12">
+                   <form id="add-avatar-form" class="form-inline" action="/avatars" th:action="@{/uploadAvatar}"
+                          method="POST" enctype="multipart/form-data">
+						<input type="hidden" name="filename" value="" th:value="${user.login}+'_avatar'" />
+                        <label>Виберіть аватар:</label> <input type="file" name="imgfile" class="form-control">
+                        <button class="btn " type="submit">Змінити</button>
+                    </form>
+			</div>
+			</div>
+	
+ 	
+	 
+	    
+	</div><!-- .row -->
+	<div class="row">
+	 		
+	 		<form id="post-message-form" action="/messages" method="post">
+	 			<fieldset>
+					<textarea name="text" class="form-control" rows="3" placeholder="Напишіть повідомлення..."></textarea>
+	 				
+	 				<button type="submit" class="btn btn-block btn-success">Написати</button>
+	 			</fieldset>
+	 		</form>
+	 	</div>	
+
+</div><!-- .container -->
+
+
+	<!-- Footer -->
+<div  th:replace="includes/common_fragments :: site-footer" >
+   
+</div>
+	<!-- Footer -->
+  </body>
+</html>
+
